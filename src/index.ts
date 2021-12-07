@@ -2,9 +2,9 @@ import * as dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import { productsRouter } from './controllers/products.controller';
 import { errorHandler } from './middleware/error.middleware';
 import { notFoundHandler } from './middleware/not-found.middleware';
+import productRouter from './routes/productRoutes';
 
 dotenv.config();
 
@@ -19,7 +19,8 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-app.use('/api/products', productsRouter);
+
+app.use(productRouter);
 
 app.use(errorHandler);
 app.use(notFoundHandler);
