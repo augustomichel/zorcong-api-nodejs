@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import { errorHandler } from './middleware/error.middleware';
+import { errorHandlerApp } from './middleware/error.middleware';
 import { notFoundHandler } from './middleware/not-found.middleware';
 import productRouter from './routes/productRoutes';
 
@@ -22,7 +22,7 @@ app.use(express.json());
 
 app.use(productRouter);
 
-app.use(errorHandler);
+app.use(errorHandlerApp);
 app.use(notFoundHandler);
 
 app.listen(PORT, () => {

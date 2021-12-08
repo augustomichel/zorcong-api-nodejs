@@ -27,12 +27,14 @@ export const create = async (newProduct: BaseProduct): Promise<Product> => {
   return newProduct;
 };
 
-export const remover = async (id: string): Promise<boolean | void> => {
+export const remover = async (id: string): Promise<boolean> => {
   const product = await find(id);
 
   if (!product) {
-    return true;
+    return false;
   }
 
   remove(ref(database, 'produtos/' + '1/' + id));
+
+  return true;
 };

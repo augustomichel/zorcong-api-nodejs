@@ -1,13 +1,22 @@
 import HttpException from '../common/http-exception';
 import { Request, Response, NextFunction } from 'express';
+import AppError from '../shared/errors/AppError';
 
-export const errorHandler = (
-  error: HttpException,
+export const errorHandlerApp = (
+  error: Error,
   request: Request,
   response: Response,
   next: NextFunction,
 ) => {
-  const status = error.statusCode || error.status || 500;
+  if (error instanceof AppError) {
+    return response.status(error.statusCode).json({
+      status: 'error',
+      message: error.message,
+    });
+  }
 
-  response.status(status).send(error);
+  return response.status(500).json({
+    status: 'error',
+    message: 'Internal server error',
+  });
 };
