@@ -5,6 +5,8 @@ import helmet from 'helmet';
 import { errorHandlerApp } from './middleware/error.middleware';
 import { notFoundHandler } from './middleware/not-found.middleware';
 import productRouter from './routes/productRoutes';
+import 'express-async-errors';
+import { errors } from 'celebrate';
 
 dotenv.config();
 
@@ -21,6 +23,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use(productRouter);
+
+app.use(errors());
 
 app.use(errorHandlerApp);
 app.use(notFoundHandler);
