@@ -1,6 +1,6 @@
-import { BaseProduct, Product } from '../model/product.interface';
+import { BaseProduct, Product } from '../../model/product.interface';
 
-import database from '../db';
+import database from '../../db';
 import { ref, child, get, push, set, remove } from 'firebase/database';
 
 const dbRef = ref(database, 'produtos');

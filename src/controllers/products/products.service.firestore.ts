@@ -1,6 +1,6 @@
-import { BaseProduct, Product } from '../model/product.interface';
+import { BaseProduct, Product } from '../../model/product.interface';
 
-import database, { EMP } from '../dbFirestore';
+import database, { EMP } from '../../dbFirestore';
 import {
   collection,
   doc,
