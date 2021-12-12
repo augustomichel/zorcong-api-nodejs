@@ -26,4 +26,13 @@ productRouter.post('/product/add', AddValidation, productsController.add);
 
 productRouter.delete('/product/del', FindValidation, productsController.delete);
 
+productRouter.post('/product/addfs', AddValidation, productsController.addfs);
+productRouter.get('/productsfs', productsController.findAllfs);
+productRouter.post('/productfs', FindValidation, productsController.findfs);
+productRouter.delete(
+  '/product/delfs',
+  FindValidation,
+  productsController.deletefs,
+);
+
 export default productRouter;
