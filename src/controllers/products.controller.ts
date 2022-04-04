@@ -1,8 +1,8 @@
-import express, { Request, Response, NextFunction } from 'express';
-import * as ProductService from './products.service';
+import { NextFunction, Request, Response } from 'express';
 import { BaseProduct, Product } from '../model/product.interface';
 import AppError from '../shared/errors/AppError';
 import AppSuccess from '../shared/errors/AppSuccess';
+import * as ProductService from './products.service';
 import * as ProductServiceFs from './products.service.firestore';
 
 export default class ProductsController {

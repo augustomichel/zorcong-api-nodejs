@@ -13,16 +13,7 @@ class AppSuccess<T> {
 
     const objJson = JSON.stringify(objeto);
 
-    const valor =
-      '{"statusCode":' +
-      statusCode +
-      ',"OK": "' +
-      OK +
-      '", "message": "' +
-      message +
-      '", "data":' +
-      objJson +
-      '}';
+    const valor = `{"statusCode":${statusCode},"OK": "${OK}", "message": "${message}", "data":${objJson}}`;
     this.json = JSON.parse(valor);
   }
 }
